@@ -4,3 +4,4 @@ CREATE DATABASE IF NOT EXISTS `bnb-shkeeper`;
 CREATE DATABASE IF NOT EXISTS `xrp-shkeeper`;
 CREATE DATABASE IF NOT EXISTS `polygon-shkeeper`;
 CREATE DATABASE IF NOT EXISTS `avalanche-shkeeper`;
+CREATE DATABASE IF NOT EXISTS `bitcoin-shkeeper`;

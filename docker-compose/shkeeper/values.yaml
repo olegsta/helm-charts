@@ -24,14 +24,14 @@ shkeeper:
 
 btc:
   enabled: true
-  testnet: true
+  mainnet: true
 
 ltc:
   enabled: true
-
-# doge:
-#   enabled: true
-#   mainnet: true
+  mainnet: true
+doge:
+  enabled: true
+  mainnet: true
 
 #
 # Tron
