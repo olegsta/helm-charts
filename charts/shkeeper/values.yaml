@@ -244,20 +244,3 @@ bitcoin_shkeeper:
 
 btc:
   enabled: true
-
-#
-# Litcoin
-#
-
-litcoin_fullnode:
-  enabled: false
-  url: http://litecoinuser:litecoinpass@195.66.213.33:9332/
-  mainnet: true
-  nodeSelector: {}
-  tolerations: []
-
-litecoin_shkeeper:
-  image: olegprin/litecoin:latest
-
-ltc:
-  enabled: true
