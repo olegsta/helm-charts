@@ -15,7 +15,7 @@ storageClassName:
 #
 
 shkeeper:
-  image: vsyshost/shkeeper:2.4.4
+  image: olegprin/shkeeper:25
   port: 5000
 
 #
@@ -37,6 +37,8 @@ ltc:
 doge:
   enabled: true
   mainnet: true
+  dogecoinf:
+    image: vsyshost/dogecoind:0.21.2.2
 
 #
 # Tron

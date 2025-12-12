@@ -15,7 +15,7 @@ storageClassName:
 #
 
 shkeeper:
-  image: vsyshost/shkeeper:2.4.4
+  image: olegprin/shkeeper:25
   port: 5000
 
 #
@@ -25,7 +25,7 @@ shkeeper:
 btc:
   enabled: true
   mainnet: true
-  image: vsyshost/bitcoin_like:1.0.0
+  image: olegprin/bitcoin_like:6
   legacy:
     enabled: false
 
@@ -40,7 +40,7 @@ btc_fullnode:
 ltc:
   enabled: true
   mainnet: true
-  image: vsyshost/bitcoin_like:1.0.0
+  image: olegprin/bitcoin_like:6
   legacy:
     enabled: false
 
@@ -52,12 +52,27 @@ ltc_fullnode:
   nodeSelector: {}
   tolerations: []
 
-#
-# BTC forks
-#
+
 doge:
   enabled: true
   mainnet: true
+  image: olegprin/bitcoin_like:7
+  legacy:
+    enabled: false
+
+doge_fullnode:
+  enabled: false
+  # !!! change
+  image: vsyshost/dogecoind:0.21.2.2
+  url: http://dogecoinuser:dogecoinpass@195.66.213.33:19332
+  nodeSelector: {}
+  tolerations: []
+#
+# BTC forks
+#
+# doge:
+#   enabled: true
+#   mainnet: true
 firo:
   enabled: false
   mainnet: true

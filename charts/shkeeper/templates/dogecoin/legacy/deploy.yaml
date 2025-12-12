@@ -1,59 +1,38 @@
-{{- if .Values.doge.enabled }}
+{{- if .Values.doge.legacy.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dogecoind-deployment
+  name: dogecoind-legacy
   namespace: {{ .Values.namespace }}
   labels:
-    app: dogecoind
+    app: dogecoind-legacy
 spec:
   replicas: 1
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: dogecoind
+      app: dogecoind-legacy
   template:
     metadata:
       labels:
-        app: dogecoind
+        app: dogecoind-legacy
     spec:
       containers:
-
-      - name: nginx
-        image: nginx
-        volumeMounts:
-        - name: nginx-config
-          mountPath: /etc/nginx/nginx.conf
-          subPath: nginx.conf
-        - name: nginx-config
-          mountPath: /etc/nginx/templates/default.conf.template
-          subPath: default.conf.template
-        - mountPath: /backup
-          name: backup
-        env:
-        - name: SHKEEPER_BACKEND_KEY
-          valueFrom:
-            secretKeyRef:
-              name: shkeeper-btc-key
-              key: password
-
-
       - name: dogecoind
-        image: vsyshost/dogecoind
-        {{- if not .Values.doge.mainnet }}
+        image: {{ .Values.doge_fullnode.image }}
         command:
         - /shkeeper/dogecoind
-        - -printtoconsole
-        - -testnet
-        - -prune=2200
         - -rpcport=22555
+        - -prune=550
         - -rpcpassword=$(DOGE_PASSWORD)
         - -rpcuser=$(DOGE_USERNAME)
         - -rpcbind=0.0.0.0
         - -rpcallowip=0.0.0.0/0
         - -wallet=shkeeper
         - -walletnotify=/shkeeper/walletnotify.sh %s
+        {{- if not .Values.doge.mainnet }}
+        - -testnet
         {{- end }}
         env:
           - name: DOGE_USERNAME
@@ -77,16 +56,8 @@ spec:
         volumeMounts:
         - name: dogecoind-storage
           mountPath: /root/.dogecoin
-        - name: backup
-          mountPath: /backup
       volumes:
       - name: dogecoind-storage
         persistentVolumeClaim:
-          claimName: dogecoind-claim
-      - name: backup
-        emptyDir:
-          medium: Memory
-      - name: nginx-config
-        configMap:
-          name: nginx-config
+          claimName: dogecoind-legacy
 {{- end }}
