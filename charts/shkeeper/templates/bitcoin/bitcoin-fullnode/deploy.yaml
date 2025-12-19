@@ -22,7 +22,6 @@ spec:
       tolerations: {{- toYaml .Values.btc_fullnode.tolerations | nindent 8 }}
       nodeSelector: {{- toYaml .Values.btc_fullnode.nodeSelector | nindent 8 }}
       containers:
-
       - name: bitcoind
         image: {{ .Values.btc_fullnode.image }}
         command:
