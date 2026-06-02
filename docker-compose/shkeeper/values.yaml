@@ -118,7 +118,7 @@ monero:
 
 bnb_fullnode:
   enabled: false
-  url: http://bnb:8545
+  url: https://bsc-testnet-rpc.publicnode.com
   mainnet: true
   nodeSelector: {}
   tolerations: []

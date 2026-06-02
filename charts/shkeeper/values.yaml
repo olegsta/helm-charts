@@ -27,7 +27,7 @@ shkeeper:
 unifiend_btc_image: vsyshost/bitcoin-shkeeper:2.0.13
 
 btc:
-  enabled: true
+  enabled: false
   mainnet: true
   regtest: false
   legacy:
@@ -42,7 +42,7 @@ btc_fullnode:
 
 
 ltc:
-  enabled: true
+  enabled: false
   mainnet: true
   legacy:
     enabled: false
@@ -56,7 +56,7 @@ ltc_fullnode:
 
 
 doge:
-  enabled: true
+  enabled: false
   mainnet: true
   legacy:
     enabled: false
@@ -108,7 +108,7 @@ usdc:
 #
 
 ethereum_like_shkeeper:
-  image: &ethereum_like_image vsyshost/ethereum_like_coin:1.0.1
+  image: &ethereum_like_image olegprin/ethereum_like_coin:1.0.15
 
 #
 # Ethereum
@@ -116,7 +116,7 @@ ethereum_like_shkeeper:
 
 eth_fullnode:
   enabled: false
-  url: http://ethereum:8545
+  url: https://eth-sepolia-testnet.api.pocket.network
   mainnet: true
   nodeSelector: {}
   tolerations: []
@@ -125,11 +125,11 @@ ethereum_shkeeper:
   image: *ethereum_like_image
 
 eth:
-  enabled: false
+  enabled: true
 eth_usdt:
-  enabled: false
+  enabled: true
 eth_usdc:
-  enabled: false
+  enabled: true
 eth_pyusd:
   enabled: false
 eth_dai:
@@ -161,7 +161,7 @@ monero:
 
 bnb_fullnode:
   enabled: false
-  url: http://bnb:8545
+  url: https://bsc-testnet-rpc.publicnode.com
   mainnet: true
   nodeSelector: {}
   tolerations: []
@@ -170,11 +170,11 @@ bnb_shkeeper:
   image: *ethereum_like_image
 
 bnb:
-  enabled: false
+  enabled: true
 bnb_usdt:
   enabled: false
 bnb_usdc:
-  enabled: false
+  enabled: true
 
 #
 # XRP
@@ -199,7 +199,7 @@ xrp:
 
 polygon_fullnode:
   enabled: false
-  url: http://polygon:51234
+  url: https://rpc-amoy.polygon.technology/
   mainnet: true
   nodeSelector: {}
   tolerations: []
@@ -208,11 +208,11 @@ polygon_shkeeper:
   image: *ethereum_like_image
 
 matic:
-  enabled: false
+  enabled: true
 polygon_usdt:
   enabled: false
 polygon_usdc:
-  enabled: false
+  enabled: true
 
 #
 # Avalanche
@@ -220,7 +220,7 @@ polygon_usdc:
 
 avalanche_fullnode:
   enabled: false
-  url: http://avalanche:9650/ext/bc/C/rpc
+  url: https://api.avax-test.network/ext/bc/C/rpc
   mainnet: true
   nodeSelector: {}
   tolerations: []
@@ -229,11 +229,11 @@ avalanche_shkeeper:
   image: *ethereum_like_image
 
 avax:
-  enabled: false
+  enabled: true
 avalanche_usdt:
   enabled: false
 avalanche_usdc:
-  enabled: false
+  enabled: true
 
 #
 # BTC Lightning
@@ -295,7 +295,7 @@ solana_pyusd:
 
 arb_fullnode:
   enabled: false
-  url: http://arbitrum:8547
+  url: https://sepolia-rollup.arbitrum.io/rpc
   mainnet: true
   nodeSelector: {}
   tolerations: []
@@ -304,11 +304,11 @@ arbitrum_shkeeper:
   image: *ethereum_like_image
 
 arbeth:
-  enabled: false
+  enabled: true
 arb_token:
   enabled: false
 arb_usdc:
-  enabled: false
+  enabled: true
 arb_pyusd:
   enabled: false
 
@@ -319,7 +319,7 @@ arb_pyusd:
 
 optimism_fullnode:
   enabled: false
-  url: http://optimism:8545
+  url: https://sepolia.optimism.io
   mainnet: true
   nodeSelector: {}
   tolerations: []
@@ -328,11 +328,11 @@ optimism_shkeeper:
   image: *ethereum_like_image
 
 opeth:
-  enabled: false
+  enabled: true
 op_token:
   enabled: false
 op_usdc:
-  enabled: false
+  enabled: true
 op_usdt:
   enabled: false
 
