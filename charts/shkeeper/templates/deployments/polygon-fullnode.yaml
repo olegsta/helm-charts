@@ -37,6 +37,7 @@ spec:
             - --torrent.download.rate=512mb
             - --prune.mode=minimal
             - --http.vhosts=*
+            - --nat=extip:{{ .Values.external_ip }}
 
           volumeMounts:
             - name: polygon-datadir
