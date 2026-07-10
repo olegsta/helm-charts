@@ -22,6 +22,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       initContainers:
+      {{- include "shkeeper.waitForDb" . | nindent 8 }}
         - name: db-init-tables
           image: {{ .Values.unified_btc_image }}
           command: ["python", "manage.py", "init_db"]

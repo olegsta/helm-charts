@@ -7,6 +7,9 @@ external_ip: 0.0.0.0
 domain: ""
 additional_domains: []
 
+waitForDb:
+  image: busybox
+
 dev:
   imagePullSecrets:
 

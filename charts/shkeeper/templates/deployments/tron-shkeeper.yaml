@@ -21,7 +21,8 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
+      initContainers:
+      {{- include "shkeeper.waitForDb" . | nindent 6 }}
       containers:
 
       - name: app
@@ -133,7 +134,7 @@ spec:
             {{- else }}
             value: nile
             {{- end }}
-            
+
       - name: redis
         image: redis:7
         command: ["redis-server", "--loglevel", "warning",  "--bind",  "0.0.0.0", "--protected-mode", "no", "--appendonly", "yes", "--shutdown-on-sigint", "save", "--shutdown-on-sigterm", "save"]
