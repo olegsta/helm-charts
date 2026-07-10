@@ -415,6 +415,11 @@ spec:
           - name: {{ $name | quote }}
             value: {{ $value | quote }}
           {{- end }}
+        livenessProbe:
+          httpGet:
+            path: /login
+            port: 5000
+          initialDelaySeconds: 15
         volumeMounts:
         - name: shkeeper-db-storage
           mountPath: /shkeeper.io/instance
