@@ -20,7 +20,7 @@ storageClassName:
 #
 
 shkeeper:
-  image: vsyshost/shkeeper:2.5.29
+  image: vsyshost/shkeeper:2.5.30
   port: 5000
   enable_payout_callback: false
 
@@ -250,7 +250,7 @@ btc_lightning:
     BITCOIND_RPCUSER: "shkeeper"
 
   rtl:
-    image: shahanafarooqui/rtl:v0.15.6
+    image: shahanafarooqui/rtl:v0.15.9
     # web_url and web_port should be uniq for for each namespace
     web_url: http://rtl:3000
     web_port: 3000
