@@ -39,7 +39,7 @@ btc:
 
 btc_fullnode:
   enabled: false
-  image: vsyshost/bitcoind:27.0
+  image: vsyshost/bitcoind:31.1
   url: http://shkeeper:shkeeper@fullnode.bitcoin.shkeeper.io:8332
   nodeSelector: {}
   tolerations: []
@@ -53,7 +53,7 @@ ltc:
 
 ltc_fullnode:
   enabled: false
-  image: vsyshost/litecoind:0.21.5.4
+  image: vsyshost/litecoind:0.21.5.6
   url: http://shkeeper:shkeeper@fullnode.litecoin.shkeeper.io:80
   nodeSelector: {}
   tolerations: []
