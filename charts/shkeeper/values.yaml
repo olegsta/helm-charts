@@ -10,6 +10,12 @@ additional_domains: []
 waitForDb:
   image: busybox
 
+createDb:
+  image: mariadb:10.9.3
+
+mariadb:
+  rootPassword: shkeeper
+
 dev:
   imagePullSecrets:
 

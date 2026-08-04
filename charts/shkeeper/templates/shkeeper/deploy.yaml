@@ -29,6 +29,7 @@ spec:
       hostname: shkeeper
       initContainers:
       {{- include "shkeeper.waitForDb" . | nindent 6 }}
+      {{- include "shkeeper.createDb" (dict "dbName" "shkeeper" "Values" .Values) | nindent 6 }}
       containers:
       - name: shkeeper
         image: {{ .Values.shkeeper.image }}
