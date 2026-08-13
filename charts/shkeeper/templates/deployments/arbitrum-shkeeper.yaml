@@ -23,6 +23,7 @@ spec:
       {{- end }}
       initContainers:
       {{- include "shkeeper.waitForDb" . | nindent 6 }}
+      {{- include "shkeeper.createDb" (dict "dbName" "arbitrum-shkeeper" "Values" .Values) | nindent 6 }}
       containers:
 
       - name: app
